@@ -1,0 +1,15 @@
+{
+  "name": "placar-devops",
+  "version": "0.1.0",
+  "description": "Placar DevOps: gamificação da pipeline de CI/CD (protótipo do artigo N3)",
+  "main": "placar/cli.js",
+  "scripts": {
+    "test": "node --test",
+    "test:cov": "node --test --experimental-test-coverage",
+    "placar": "node placar/cli.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "license": "MIT"
+}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Placar DevOps</title>
+<style>
+  :root { --fundo:#fafafa; --texto:#1c1c1c; --card:#fff; --borda:#ddd; --destaque:#2d6cdf; }
+  @media (prefers-color-scheme: dark) {
+    :root { --fundo:#16181d; --texto:#eceff4; --card:#1f232b; --borda:#343a46; --destaque:#6ea0ff; }
+  }
+  body { font-family: system-ui, sans-serif; background:var(--fundo); color:var(--texto); max-width:640px; margin:2rem auto; padding:0 1rem; }
+  h1 { font-size:1.5rem; }
+  table { width:100%; border-collapse:collapse; background:var(--card); border:1px solid var(--borda); border-radius:8px; overflow:hidden; }
+  th, td { padding:.7rem 1rem; text-align:left; border-bottom:1px solid var(--borda); }
+  th { font-size:.8rem; text-transform:uppercase; letter-spacing:.04em; opacity:.7; }
+  td.pts { text-align:right; font-weight:700; color:var(--destaque); }
+  tr:last-child td { border-bottom:0; }
+  p.nota { opacity:.7; font-size:.9rem; }
+</style>
+</head>
+<body>
+<h1>🎮 Placar DevOps</h1>
+<p class="nota">Ranking por equipe. Os pontos vêm dos PRs, das revisões e da pipeline.</p>
+<table>
+  <thead><tr><th>#</th><th>Equipe</th><th style="text-align:right">Pontos</th></tr></thead>
+  <tbody id="corpo"><tr><td colspan="3">Carregando...</td></tr></tbody>
+</table>
+<script>
+  fetch("ranking.json", { cache: "no-store" })
+    .then(r => r.json())
+    .then(d => {
+      const linhas = Object.entries(d.equipes).sort((a, b) => b[1] - a[1]);
+      const corpo = document.getElementById("corpo");
+      if (!linhas.length) { corpo.innerHTML = '<tr><td colspan="3">Ainda sem pontos.</td></tr>'; return; }
+      corpo.innerHTML = linhas.map(([nome, pts], i) =>
+        `<tr><td>${i + 1}</td><td>${nome.replace(/[<>&]/g, "")}</td><td class="pts">${pts}</td></tr>`).join("");
+    })
+    .catch(() => { document.getElementById("corpo").innerHTML = '<tr><td colspan="3">Não deu pra carregar o ranking.</td></tr>'; });
+</script>
+</body>
+</html>
