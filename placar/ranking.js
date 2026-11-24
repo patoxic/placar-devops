@@ -37,6 +37,7 @@ function registrar(dados, eventoId, login, equipe, regras, dia) {
     dados.pessoas[login] = { equipe, total: 0, por_dia: {}, contadores: {}, conquistas: [] };
   }
   const pessoa = dados.pessoas[login];
+  pessoa.equipe = equipe;
 
   const bruto = regras.reduce((acc, r) => acc + PONTOS[r], 0);
   const concedidos = aplicarTeto(pessoa.por_dia[dia] || 0, bruto);
