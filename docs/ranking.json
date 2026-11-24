@@ -1,23 +1,24 @@
 {
   "equipes": {
-    "Alfa": 15,
+    "Alfa": 20,
     "Sem equipe": 30
   },
   "eventos": [
     "pr:3",
-    "pr:1"
+    "pr:1",
+    "pr:4"
   ],
   "pessoas": {
     "patoxic": {
-      "equipe": "Sem equipe",
-      "total": 45,
+      "equipe": "Alfa",
+      "total": 50,
       "por_dia": {
-        "2026-11-24": 45
+        "2026-11-24": 50
       },
       "contadores": {
-        "pr_pequeno": 2,
+        "pr_pequeno": 3,
         "verde_primeira": 2,
-        "teste_novo": 1
+        "teste_novo": 2
       },
       "conquistas": []
     }
