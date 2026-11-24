@@ -1,5 +1,23 @@
 {
-  "equipes": {},
-  "eventos": [],
-  "pessoas": {}
+  "equipes": {
+    "Sem equipe": 30
+  },
+  "eventos": [
+    "pr:3"
+  ],
+  "pessoas": {
+    "patoxic": {
+      "equipe": "Sem equipe",
+      "total": 30,
+      "por_dia": {
+        "2026-11-24": 30
+      },
+      "contadores": {
+        "pr_pequeno": 1,
+        "verde_primeira": 1,
+        "teste_novo": 1
+      },
+      "conquistas": []
+    }
+  }
 }
