@@ -46,4 +46,11 @@ test('salvar e carregar', () => {
   ranking.salvar(d, caminho);
   assert.deepEqual(ranking.carregar(caminho), d);
   assert.deepEqual(ranking.carregar(path.join(pasta, 'nao-existe.json')), ranking.vazio());
+
+  test('atualiza a equipe da pessoa quando ela muda', () => {
+  const d = ranking.vazio();
+  ranking.registrar(d, 'pr:1', 'ana', 'Sem equipe', ['pr_pequeno'], '2026-11-10');
+  ranking.registrar(d, 'pr:2', 'ana', 'Alfa', ['pr_pequeno'], '2026-11-10');
+  assert.equal(d.pessoas.ana.equipe, 'Alfa');
+});
 });
