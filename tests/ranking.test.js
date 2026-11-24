@@ -53,4 +53,3 @@ test('salvar e carregar', () => {
   ranking.registrar(d, 'pr:2', 'ana', 'Alfa', ['pr_pequeno'], '2026-11-10');
   assert.equal(d.pessoas.ana.equipe, 'Alfa');
 });
-});
